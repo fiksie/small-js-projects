@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Stopwatch</title>
+    <script src="stopwatch.js" defer></script>
+    <style>
+      body {
+        background: rgb(10,0,182);
+        background: radial-gradient(circle, rgba(10,0,182,1) 0%, rgba(0,212,255,1) 100%);
+        min-height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #666;
+      }
+      .stopwatch {
+        margin: 20px auto;
+        padding: 10px 10px 30px 10px;
+        min-width: 280px;
+        max-width: 35%;
+        background: #fff;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .swdisplayscreen {
+        margin: 0 auto;
+        padding: 10px 20px 30px 20px;
+      }
+      .swdisplayscreen .swcounter {
+        font-size: 4rem;
+        width: 320px;
+        display: inline-block;
+        text-align: left;
+      }
+      .swdisplayscreen #swcentiseconds {
+        font-size: 3rem;
+      }
+      .swcontrols .circleicon {
+        width:60px;
+        height:60px;
+        border-radius: 30px;
+        background: rgb(91, 91, 172);
+        display: inline-block;
+        margin: 5px 10px;
+        color: #fff;
+        cursor: pointer;
+      }
+      .swcontrols .circleicon svg {
+        display: block;
+        margin: 15px auto;
+        width: 30px;
+        height: 30px;
+        fill: white;
+      }
+      #swpause {
+        display: none;
+      }
+      table.swprogresstrack {
+        width: 100%;
+        margin:20px auto;
+        border-collapse: collapse;
+        line-height: 20px;
+        text-align: left;
+      }
+      table.swcounter {
+        font-size: 1rem;
+      }
+      table.swprogresstrack thead {
+        font-weight:bold;
+        border-bottom: 1px solid #666;
+      }
+      table.swprogresstrack thead th {
+        line-height: 1.5rem;
+      }
+      table.swprogresstrack td {
+        padding:8px 3px 3px 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="stopwatch">
+      <div class="swdisplayscreen">
+        <span class="swcounter"><span id="swhours">00</span>:<span id="swminutes">00</span>:<span id="swseconds">00</span>.<span id="swcentiseconds">00</span></span>
+      </div>
+      <div class="swcontrols">
+        <a class="circleicon" id="swplay"><svg viewBox="0 0 16 16"> <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg></a>
+        <a class="circleicon" id="swpause"><svg viewBox="0 0 16 16"> <path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/> </svg></a>
+        <a class="circleicon" id="swcheckpoint"><svg viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/> <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/> <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg></a>
+        <a class="circleicon" id="swreset"><svg viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/> <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/></svg></a>
+      </div>
+      <table class="swprogresstrack">
+        <thead>
+          <tr>
+            <th>Ticks</th>
+            <th></th>
+            <th>Time</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody class="tableBodyCounter">
+          
+        </tbody>
+      </table>
+    </div>
+    
+  </body>
+</html>
